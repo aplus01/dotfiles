@@ -1,0 +1,17 @@
+# Shell
+command = /usr/bin/zsh
+
+# Font
+font-family = "Monospace"
+font-size = 12
+
+# Theme
+theme = dark
+
+# Window padding
+window-padding-x = 10
+window-padding-y = 10
+
+# Cursor
+cursor-style = block
+cursor-style-blink = true

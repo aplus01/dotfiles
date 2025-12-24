@@ -1,0 +1,9 @@
+# Ignore sensitive files
+*_history
+*.log
+*.swp
+*~
+
+# OS-specific
+.DS_Store
+Thumbs.db
