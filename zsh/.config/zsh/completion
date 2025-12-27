@@ -1,0 +1,27 @@
+# Completion settings (ported from Omakub's inputrc)
+
+# Case-insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+# Show all completions at once (no paging)
+setopt AUTO_LIST
+setopt AUTO_MENU
+setopt NO_LIST_BEEP
+
+# Arrow keys search history based on what you've typed
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
+bindkey "^[[C" forward-char
+bindkey "^[[D" backward-char
+
+# Add trailing slash to symlinked directories
+setopt MARK_DIRS
+
+# Don't show hidden files unless pattern starts with .
+unsetopt GLOB_DOTS
+
+# Show file types in completion (like ls -F)
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+# Ask before showing more than 200 completions
+LISTMAX=200

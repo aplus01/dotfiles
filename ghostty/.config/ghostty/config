@@ -2,16 +2,19 @@
 command = /usr/bin/zsh
 
 # Font
-font-family = "Monospace"
+font-family = "FiraMono Nerd Font"
 font-size = 12
 
 # Theme
-theme = dark
+theme = dark:nord-default,light:rose-pine-dawn
 
 # Window padding
 window-padding-x = 10
 window-padding-y = 10
+window-decoration = none
 
 # Cursor
 cursor-style = block
 cursor-style-blink = true
+
+background-opacity = .9
