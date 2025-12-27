@@ -19,3 +19,8 @@ if command -v fzf &> /dev/null; then
     source /usr/share/doc/fzf/examples/completion.zsh
   fi
 fi
+
+# Angular CLI
+if command -v ng &> /dev/null; then
+  source <(ng completion script)
+fi

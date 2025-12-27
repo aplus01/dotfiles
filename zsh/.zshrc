@@ -7,7 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
 
 # Plugins
-plugins=(git)
+plugins=(git, zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -22,9 +22,38 @@ source ~/.config/zsh/completion
 source ~/.config/zsh/functions
 source ~/.config/zsh/init
 
-# Zoxide init for zsh (instead of bash)
-eval "$(zoxide init zsh)"
+# -----------------------------------------------------------------------------
+# Prompt customizations (must come after oh-my-zsh)
+# -----------------------------------------------------------------------------
 
-# FZF for zsh
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
+# Track command execution time
+preexec() {
+  cmd_start=$EPOCHREALTIME
+}
+
+precmd() {
+  if [[ -n $cmd_start ]]; then
+    local elapsed=$(( EPOCHREALTIME - cmd_start ))
+    if (( elapsed >= 1 )); then
+      # Format based on duration
+      if (( elapsed >= 60 )); then
+        cmd_time=$(printf "%dm%ds" $((elapsed/60)) $((elapsed%60)))
+      else
+        cmd_time=$(printf "%.1fs" $elapsed)
+      fi
+    else
+      cmd_time=""  # Don't show for quick commands
+    fi
+    unset cmd_start
+  fi
+}
+
+prompt_context() { }
+prompt_dir() {
+    prompt_segment 39d $CURRENT_FG '%1~'
+}
+
+EMOJIS=(🔥 💥 👹 💋 💃 🍑 🌵 🐍 🐢 💩 👻 🎳 🍐 🍊 🍋 🍌 🍉 🍇 🍈 🍍 🍆 🐔 🐧 🚀 😎 🍣 🍺 👾 🙈 🙉 🙊 💀)
+SEL_EMOJI=${EMOJIS[RANDOM % ${#EMOJIS[@]} - 1]}
+PROMPT='$SEL_EMOJI %{%f%b%k%}$(build_prompt) '
+RPROMPT='${cmd_time:+⏱ $cmd_time}'
