@@ -17,4 +17,4 @@ window-decoration = none
 cursor-style = block
 cursor-style-blink = true
 
-background-opacity = .9
+#background-opacity = .9
