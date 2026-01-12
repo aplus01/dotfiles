@@ -48,7 +48,13 @@ precmd() {
   fi
 }
 
-prompt_context() { }
+prompt_context() {
+  if [[ -n $SSH_CONNECTION ]]; then
+    prompt_segment black default "%m"
+  fi
+}
+
+
 prompt_dir() {
     prompt_segment 39d $CURRENT_FG '%1~'
 }

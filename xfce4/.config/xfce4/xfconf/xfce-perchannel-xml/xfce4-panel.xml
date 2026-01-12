@@ -59,6 +59,7 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-items" type="array">
+        <value type="string" value="unattended-upgrade"/>
         <value type="string" value="remmina-icon"/>
         <value type="string" value="ulauncher"/>
       </property>
