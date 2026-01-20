@@ -18,16 +18,30 @@ echo "📦 Installing apt packages..."
 
 sudo apt update
 sudo apt install -y \
-    zsh \
-    git \
-    curl \
-    wget \
-    stow \
-    fzf \
-    bat \
-    fd-find \
-    ripgrep \
-    neovim
+  zsh \
+  git \
+  curl \
+  wget \
+  stow \
+  fzf \
+  bat \
+  fd-find \
+  ripgrep \
+  neovim \
+  eza \
+  zoxide \
+  plocate \
+  apache2-utils
+
+# -----------------------------------------------------------------------------
+# Install oh-my-zsh
+# -----------------------------------------------------------------------------
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  echo "📦 Installing oh-my-zsh..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+else
+  echo "✅ oh-my-zsh already installed"
+fi
 
 # -----------------------------------------------------------------------------
 # Run install scripts
@@ -35,19 +49,9 @@ sudo apt install -y \
 echo "📦 Running install scripts..."
 
 for script in "$DOTFILES_DIR"/install/*.sh; do
-    echo "  Running $(basename "$script")..."
-    bash "$script"
+  echo "  Running $(basename "$script")..."
+  bash "$script"
 done
-
-# -----------------------------------------------------------------------------
-# Install oh-my-zsh
-# -----------------------------------------------------------------------------
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    echo "📦 Installing oh-my-zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-else
-    echo "✓ oh-my-zsh already installed"
-fi
 
 # -----------------------------------------------------------------------------
 # Link dotfiles
@@ -58,19 +62,20 @@ cd "$DOTFILES_DIR"
 
 # Remove existing .zshrc if it's not a symlink (oh-my-zsh creates one)
 if [ -f "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
-    echo "  Backing up existing .zshrc to .zshrc.backup"
-    mv "$HOME/.zshrc" "$HOME/.zshrc.backup"
+  echo "  Backing up existing .zshrc to .zshrc.backup"
+  mv "$HOME/.zshrc" "$HOME/.zshrc.backup"
 fi
 
-stow -R zsh
-stow -R ghostty
+stow -t ~ -R zsh
+stow -t ~ -R ghostty
+stow -t ~ -R nvim
 
 # -----------------------------------------------------------------------------
 # Set zsh as default shell
 # -----------------------------------------------------------------------------
 if [ "$SHELL" != "$(which zsh)" ]; then
-    echo "🐚 Setting zsh as default shell..."
-    chsh -s $(which zsh)
+  echo "🚀 Setting zsh as default shell..."
+  chsh -s $(which zsh)
 fi
 
 # -----------------------------------------------------------------------------

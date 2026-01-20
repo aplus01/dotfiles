@@ -63,3 +63,8 @@ EMOJIS=(🔥 💥 👹 💋 💃 🍑 🌵 🐍 🐢 💩 👻 🎳 🍐 🍊 �
 SEL_EMOJI=${EMOJIS[RANDOM % ${#EMOJIS[@]} - 1]}
 PROMPT='$SEL_EMOJI %{%f%b%k%}$(build_prompt) '
 RPROMPT='${cmd_time:+⏱ $cmd_time}'
+eval "$(mise activate zsh)"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

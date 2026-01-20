@@ -6,12 +6,13 @@ font-family = "FiraMono Nerd Font"
 font-size = 12
 
 # Theme
-theme = dark:nord-default,light:rose-pine-dawn
+theme = dark:Carbonfox,light:Catppuccin Latte
 
 # Window padding
 window-padding-x = 10
 window-padding-y = 10
 window-decoration = none
+window-show-tab-bar = auto
 
 # Cursor
 cursor-style = block
