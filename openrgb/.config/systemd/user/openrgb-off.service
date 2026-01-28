@@ -1,0 +1,11 @@
+[Unit]
+Description=Turn off RAM RGB LEDs
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c '/home/aaron/Downloads/OpenRGB_1.0rc2_x86_64_0fca93e.AppImage --noautoconnect -d 0 -m off -d 1 -m off 2>/dev/null'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target

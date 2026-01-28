@@ -22,6 +22,9 @@ source ~/.config/zsh/completion
 source ~/.config/zsh/functions
 source ~/.config/zsh/init
 
+# Secrets (API tokens, not tracked in git)
+[[ -f ~/.config/zsh/secrets ]] && source ~/.config/zsh/secrets
+
 # -----------------------------------------------------------------------------
 # Prompt customizations (must come after oh-my-zsh)
 # -----------------------------------------------------------------------------
