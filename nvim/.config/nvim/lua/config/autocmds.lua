@@ -9,15 +9,14 @@
 
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
-    -- Only open if no file was specified
+    local arg = vim.fn.argv(0)
     if vim.fn.argc() == 0 then
+      -- No args: open explorer in cwd
       require("snacks").explorer()
-    -- Or open to file's directory if opening a file
-    elseif vim.fn.argc() == 1 then
-      local file = vim.fn.expand("%:p")
-      if vim.fn.filereadable(file) == 1 then
-        require("snacks").explorer({ cwd = vim.fn.expand("%:p:h") })
-      end
+    elseif vim.fn.argc() == 1 and vim.fn.isdirectory(arg) == 1 then
+      -- Directory specified: open explorer there
+      require("snacks").explorer({ cwd = vim.fn.fnamemodify(arg, ":p") })
     end
+    -- File specified: do nothing
   end,
 })
