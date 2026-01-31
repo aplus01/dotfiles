@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+if [[ $(gsettings get org.gnome.desktop.interface color-scheme) == "'prefer-dark'" ]]; then
+    theme="base8"
+else
+    theme="OneHalfLight"
+fi
+
+batcat --style=numbers --color=always --theme="$theme" "$@"
