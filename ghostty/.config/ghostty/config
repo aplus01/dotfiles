@@ -3,6 +3,9 @@ command = /usr/bin/zsh
 
 # Font
 font-family = "FiraMono Nerd Font"
+font-family = "Noto Sans Mono"
+font-family = "Noto Sans Symbols"
+font-family = "Noto Sans Symbols 2"
 font-size = 12
 
 # Theme

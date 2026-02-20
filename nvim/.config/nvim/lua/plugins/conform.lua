@@ -10,6 +10,7 @@ return {
       typescriptreact = { "prettier" },
       json = { "prettier" },
       jsonc = { "prettier" },
+      python = { "ruff_format" },
     },
     format_on_save = {
       timeout_ms = 500,
