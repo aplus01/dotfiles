@@ -9,7 +9,8 @@ font-family = "Noto Sans Symbols 2"
 font-size = 12
 
 # Theme
-theme = dark:Carbonfox,light:Catppuccin Latte
+#theme = dark:Carbonfox,light:Catppuccin Latte
+theme = Carbonfox
 
 # Window padding
 window-padding-x = 10
@@ -22,3 +23,7 @@ cursor-style = block
 cursor-style-blink = true
 
 #background-opacity = .9
+
+# notifications
+desktop-notification = false
+bell-features = no-attention
