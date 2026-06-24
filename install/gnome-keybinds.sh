@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# GNOME-only; nothing to do on macOS.
+if [ "$(uname -s)" = "Darwin" ]; then
+  echo "Skipping GNOME keybindings on macOS"
+  exit 0
+fi
+
 # Window Manager Keybindings
 gsettings set org.gnome.desktop.wm.keybindings show-desktop "[]"
 gsettings set org.gnome.desktop.wm.keybindings cycle-windows "[]"
