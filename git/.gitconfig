@@ -1,0 +1,7 @@
+[core]
+	pager = less -FX
+
+# Machine-local settings (user.name, user.email, etc.).
+# Not tracked in dotfiles; created per-machine by install.sh.
+[include]
+	path = ~/.gitconfig.local

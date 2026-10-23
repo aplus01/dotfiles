@@ -1,5 +1,5 @@
 # PATH configuration
-export PATH="./bin:$HOME/.local/bin:$HOME/.local/share/omakub/bin:$PATH"
+export PATH="/opt/homebrew/bin:./bin:$HOME/.local/bin:$HOME/.local/share/omakub/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
 # Omakub location
 export OMAKUB_PATH="$HOME/.local/share/omakub"

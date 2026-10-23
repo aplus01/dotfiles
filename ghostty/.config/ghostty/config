@@ -1,5 +1,5 @@
 # Shell
-command = /usr/bin/zsh
+command = /usr/bin/env zsh
 
 # Font
 font-family = "FiraMono Nerd Font"
@@ -15,7 +15,7 @@ theme = Carbonfox
 # Window padding
 window-padding-x = 10
 window-padding-y = 10
-window-decoration = none
+# window-decoration = none
 window-show-tab-bar = auto
 
 # Cursor
@@ -25,5 +25,5 @@ cursor-style-blink = true
 #background-opacity = .9
 
 # notifications
-desktop-notification = false
+# desktop-notification = false
 bell-features = no-attention

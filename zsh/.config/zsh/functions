@@ -133,6 +133,9 @@ app2folder-remove() {
   fi
 }
 
+bwu() { export BW_SESSION="$(bw unlock --raw)"; }
+
+
 # Ensure that external keyboards that use an fn key has the F keys as the default
 #alias fix_fkeys='echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode'
 
