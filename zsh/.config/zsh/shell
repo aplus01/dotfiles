@@ -1,6 +1,11 @@
 # PATH configuration
 export PATH="/opt/homebrew/bin:./bin:$HOME/.local/bin:$HOME/.local/share/omakub/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
+if [[ "$OSTYPE" == darwin* ]]; then
+  [[ -d /usr/local/bin ]] && export PATH="$PATH:/usr/local/bin"
+  [[ -d /opt/homebrew/opt/rustup/bin ]] && export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+fi
+
 # Omakub location
 export OMAKUB_PATH="$HOME/.local/share/omakub"
 
